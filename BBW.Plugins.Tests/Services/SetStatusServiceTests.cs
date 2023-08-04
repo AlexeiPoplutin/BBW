@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Net.NetworkInformation;
-using BBW.Plugins.Opportunity;
 using BBW.Plugins.Opportunity.Interfaces;
 using BBW.Plugins.Opportunity.Models;
 using BBW.Plugins.Opportunity.Services;
@@ -38,32 +36,6 @@ namespace BBW.Plugins.Tests.Services
             // Assert
             _statusCalculatorMock.Verify(mock => mock.CalculateBasedOnRevenueAndCloseProbability(It.IsAny<Entity>()), Times.Never);
         }
-
-        //[Test]
-        //public void SetStatus_Should_NotUpdateStateAndStatus_If_IsStatusUpdateNeeded_Returns_False()
-        //{
-        //    // Arrange
-        //    var opportunity = new Entity("opportunity") { Id = Guid.NewGuid() };
-        //    opportunity["closeprobability"] = new Random().Next(0, 100);
-
-        //    var preImage = new Entity("opportunity") { Id = opportunity.Id };
-        //    preImage["statecode"] = new OptionSetValue((int)OpportunityEntity.Status_OptionSet.Open);
-        //    preImage["statuscode"] = new OptionSetValue((int)OpportunityEntity.StatusReason_OptionSet.InProgress);
-
-        //    var oppStatusTuple = makeTuple(
-        //        new OptionSetValue((int)OpportunityEntity.Status_OptionSet.Open),
-        //        new OptionSetValue((int)OpportunityEntity.StatusReason_OptionSet.InProgress));
-
-        //    _statusCalculatorMock.Setup(mock => mock.CalculateBasedOnRevenueAndCloseProbability(It.IsAny<Entity>()))
-        //        .Returns(oppStatusTuple);
-
-        //    // Act
-        //    _setStatusService.SetStatus(opportunity, preImage);
-
-        //    // Assert
-        //    Assert.IsTrue(!opportunity.Contains("statecode"));
-        //    Assert.IsTrue(!opportunity.Contains("statuscode"));
-        //}
 
         [TestCase((int)OpportunityEntity.Status_OptionSet.Open, (int)OpportunityEntity.StatusReason_OptionSet.InProgress)]
         [TestCase((int)OpportunityEntity.Status_OptionSet.Open, null)]
