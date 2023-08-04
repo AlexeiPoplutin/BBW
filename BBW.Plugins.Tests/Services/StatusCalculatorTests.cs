@@ -21,6 +21,7 @@ namespace BBW.Plugins.Tests.Services
 
         [TestCase(0, 50, (int)OpportunityEntity.Status_OptionSet.Lost, (int)OpportunityEntity.StatusReason_OptionSet.Canceled)]
         [TestCase(100, 0, (int)OpportunityEntity.Status_OptionSet.Lost, (int)OpportunityEntity.StatusReason_OptionSet.Canceled)]
+        [TestCase(0, 0, (int)OpportunityEntity.Status_OptionSet.Lost, (int)OpportunityEntity.StatusReason_OptionSet.Canceled)]
 
         [TestCase(Constants.CloseProbabilityToWin, Constants.AmountToWin, (int)OpportunityEntity.Status_OptionSet.Won, (int)OpportunityEntity.StatusReason_OptionSet.Won)]
 

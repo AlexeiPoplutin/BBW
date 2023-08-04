@@ -1,9 +1,10 @@
+using BBW.Plugins.Opportunity.Services;
 using Microsoft.Xrm.Sdk;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
-namespace BBW.Plugins.Opportunity.Services.Tests
+namespace BBW.Plugins.Tests.Services
 {
     [TestFixture]
     public class EntityServiceTests
@@ -54,7 +55,7 @@ namespace BBW.Plugins.Opportunity.Services.Tests
             Entity oldEntity = new Entity("opportunity", _opportunityId);
             oldEntity["new_name"] = "Test Opportunity OLD";
             oldEntity["new_description"] = description;
-            List<string> attributes = new List<string>() {"new_name", "new_description" };
+            List<string> attributes = new List<string>() { "new_name", "new_description" };
 
             // Act
             Entity mergedEntity = EntityService.MergeEntities(mainEntity, oldEntity, attributes);

@@ -13,7 +13,7 @@ namespace BBW.Plugins.Opportunity.Services
             var estimatedVal = mergedOpportunity.GetAttributeValue<Money>("estimatedvalue");
 
             if ((closeProbab.HasValue && closeProbab == 0)
-                || (estimatedVal != null && estimatedVal?.Value == 0))
+                || (estimatedVal != null && estimatedVal.Value == 0))
             {
                 oppState = new OptionSetValue((int)OpportunityEntity.Status_OptionSet.Lost);
                 oppStatus = new OptionSetValue((int)OpportunityEntity.StatusReason_OptionSet.Canceled);
@@ -24,8 +24,6 @@ namespace BBW.Plugins.Opportunity.Services
                 oppStatus = new OptionSetValue((int)OpportunityEntity.StatusReason_OptionSet.Won);
             }
             else
-            //if (!closeProbab.HasValue || estimatedVal == null
-            //    || (closeProbab > 0 && closeProbab < CloseProbabilityToWin && estimatedVal.Value > 0 && estimatedVal.Value < AmountToWin))
             {
                 oppState = new OptionSetValue((int)OpportunityEntity.Status_OptionSet.Open);
                 oppStatus = new OptionSetValue((int)OpportunityEntity.StatusReason_OptionSet.InProgress);

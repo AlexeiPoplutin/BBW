@@ -42,7 +42,7 @@ namespace BBW.Plugins.Opportunity.Services
             var currentState = mergedOpportunity.GetAttributeValue<OptionSetValue>("statecode");
 
             return oppStatus != null && oppState != null
-                && (currentStatus?.Value != oppStatus.Value || currentState?.Value != oppState.Value);
+                && (currentStatus.Value != oppStatus.Value || currentState.Value != oppState.Value);
         }
     }
 }
